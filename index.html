@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Foro de reflexión | ¿Tu estrategia evaluativa está realmente integrada?</title>
+
+<style>
+
+/* =====================================================
+   VARIABLES Y BASE
+===================================================== */
+
+#sise-foro-integracion{
+  --red:#FF0E49;
+  --dark:#231F20;
+  --soft:#FFF1F5;
+  --border:#F7D4E0;
+  --gray:#555;
+  --green:#16835B;
+
+  font-family:Arial, sans-serif;
+  width:100%;
+  margin:0;
+  color:var(--dark);
+}
+
+#sise-foro-integracion *{
+  box-sizing:border-box;
+}
+
+#sise-foro-integracion button,
+#sise-foro-integracion input{
+  font:inherit;
+}
+
+
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+
+#sise-foro-integracion .foro-card{
+  background:linear-gradient(
+    135deg,
+    #231F20 0%,
+    #30292B 55%,
+    #FF0E49 180%
+  );
+
+  color:white;
+  border-radius:12px;
+  padding:34px;
+
+  position:relative;
+  overflow:hidden;
+}
+
+#sise-foro-integracion .foro-card:after{
+  content:"";
+
+  position:absolute;
+
+  width:280px;
+  height:280px;
+
+  border:2px solid rgba(255,255,255,.12);
+  border-radius:50%;
+
+  right:-90px;
+  top:-100px;
+}
+
+
+/* =====================================================
+   CABECERA
+===================================================== */
+
+#sise-foro-integracion .title-row{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+
+  position:relative;
+  z-index:2;
+}
+
+#sise-foro-integracion .title-icon{
+  width:54px;
+  height:54px;
+  min-width:54px;
+
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#sise-foro-integracion svg{
+  width:30px;
+  height:30px;
+
+  stroke:var(--red);
+  fill:none;
+
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+#sise-foro-integracion h2{
+  margin:0;
+
+  color:white;
+
+  font-size:34px;
+  line-height:1.15;
+  font-weight:900;
+}
+
+#sise-foro-integracion .subtitle{
+  margin-top:10px;
+
+  color:#F7D4E0;
+
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.5px;
+  line-height:1.5;
+}
+
+
+/* =====================================================
+   METADATOS
+===================================================== */
+
+#sise-foro-integracion .meta-row{
+  margin-top:14px;
+
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+#sise-foro-integracion .meta-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+
+  color:#fff;
+
+  border-radius:999px;
+
+  padding:7px 11px;
+
+  font-size:13px;
+  font-weight:800;
+}
+
+#sise-foro-integracion .meta-chip svg{
+  width:16px;
+  height:16px;
+
+  stroke:#fff;
+}
+
+
+/* =====================================================
+   CONTENIDO
+===================================================== */
+
+#sise-foro-integracion .content{
+  margin-top:24px;
+
+  position:relative;
+  z-index:2;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+#sise-foro-integracion .box{
+  background:white;
+  color:#333;
+
+  border-radius:10px;
+
+  padding:22px;
+
+  line-height:1.7;
+  font-size:15px;
+}
+
+#sise-foro-integracion .box h3{
+  margin:0 0 12px;
+
+  color:var(--red);
+
+  font-size:20px;
+  font-weight:900;
+}
+
+#sise-foro-integracion .box p{
+  margin:0 0 12px;
+}
+
+#sise-foro-integracion .box p:last-child{
+  margin-bottom:0;
+}
+
+#sise-foro-integracion .wide{
+  grid-column:1 / -1;
+}
+
+
+/* =====================================================
+   CABECERAS DE SECCIÓN
+===================================================== */
+
+#sise-foro-integracion .section-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  margin-bottom:12px;
+}
+
+#sise-foro-integracion .section-header svg{
+  width:26px;
+  height:26px;
+  min-width:26px;
+}
+
+
+/* =====================================================
+   LISTAS
+===================================================== */
+
+#sise-foro-integracion ul,
+#sise-foro-integracion ol{
+  margin:8px 0 0;
+  padding-left:20px;
+
+  line-height:1.75;
+}
+
+#sise-foro-integracion li{
+  margin-bottom:6px;
+}
+
+
+/* =====================================================
+   PREGUNTA PODEROSA
+===================================================== */
+
+#sise-foro-integracion .question-box{
+  background:var(--soft);
+
+  border:1px solid var(--border);
+  border-left:7px solid var(--red);
+}
+
+#sise-foro-integracion .highlight{
+  color:var(--dark);
+
+  font-size:18px;
+  font-weight:900;
+  line-height:1.5;
+}
+
+
+/* =====================================================
+   CHECKLIST
+===================================================== */
+
+#sise-foro-integracion .checklist-shell{
+  margin-top:4px;
+
+  padding:20px;
+
+  border:1px solid #E9E1E4;
+  border-radius:12px;
+
+  background:#F8F6F7;
+}
+
+#sise-foro-integracion .checklist-intro{
+  margin-bottom:17px;
+
+  padding:15px 17px;
+
+  border-left:6px solid var(--red);
+  border-radius:8px;
+
+  background:#FFF1F5;
+
+  color:#4C4447;
+  line-height:1.6;
+}
+
+#sise-foro-integracion .checklist-intro strong{
+  color:var(--dark);
+}
+
+
+/* GRID */
+
+#sise-foro-integracion .check-grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:12px;
+}
+
+
+/* ITEM */
+
+#sise-foro-integracion .check-item{
+  position:relative;
+}
+
+#sise-foro-integracion .check-item input{
+  position:absolute;
+
+  opacity:0;
+  pointer-events:none;
+}
+
+#sise-foro-integracion .check-item label{
+  min-height:155px;
+  height:100%;
+
+  display:flex;
+  gap:13px;
+  align-items:flex-start;
+
+  padding:17px;
+
+  border:1px solid #E3DADD;
+  border-radius:10px;
+
+  background:#fff;
+
+  cursor:pointer;
+
+  transition:.2s ease;
+}
+
+#sise-foro-integracion .check-item label:hover{
+  border-color:#E8A1B9;
+
+  transform:translateY(-1px);
+}
+
+
+/* CHECK */
+
+#sise-foro-integracion .check-box{
+  width:28px;
+  height:28px;
+  min-width:28px;
+
+  border:2px solid #CFC4C8;
+  border-radius:6px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#fff;
+  background:#fff;
+
+  transition:.2s ease;
+}
+
+#sise-foro-integracion .check-box svg{
+  width:17px;
+  height:17px;
+
+  stroke:#fff;
+
+  opacity:0;
+}
+
+#sise-foro-integracion .check-copy strong{
+  display:block;
+
+  margin-bottom:5px;
+
+  color:#231F20;
+
+  font-size:16px;
+}
+
+#sise-foro-integracion .check-copy span{
+  display:block;
+
+  color:#665D60;
+
+  font-size:13.5px;
+  line-height:1.5;
+}
+
+
+/* CHECK SELECCIONADO */
+
+#sise-foro-integracion .check-item input:checked + label{
+  border:2px solid var(--red);
+
+  background:#FFF8FA;
+}
+
+#sise-foro-integracion .check-item input:checked + label .check-box{
+  border-color:var(--red);
+
+  background:var(--red);
+}
+
+#sise-foro-integracion .check-item input:checked + label .check-box svg{
+  opacity:1;
+}
+
+
+/* =====================================================
+   RESULTADO DEL AUTODIAGNÓSTICO
+===================================================== */
+
+#sise-foro-integracion .diagnostic{
+  margin-top:15px;
+
+  padding:16px 18px;
+
+  border-radius:9px;
+
+  background:#231F20;
+
+  color:white;
+}
+
+#sise-foro-integracion .diagnostic-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  gap:14px;
+
+  margin-bottom:9px;
+}
+
+#sise-foro-integracion .diagnostic strong{
+  font-size:16px;
+}
+
+#sise-foro-integracion .diagnostic-count{
+  color:#FFB2C9;
+
+  font-size:14px;
+  font-weight:900;
+}
+
+
+/* BARRA DE PROGRESO */
+
+#sise-foro-integracion .progress-track{
+  height:7px;
+
+  margin-bottom:10px;
+
+  overflow:hidden;
+
+  border-radius:999px;
+
+  background:#4B4346;
+}
+
+#sise-foro-integracion .progress-fill{
+  display:block;
+
+  width:0;
+  height:100%;
+
+  border-radius:999px;
+
+  background:var(--red);
+
+  transition:width .25s ease;
+}
+
+#sise-foro-integracion .diagnostic p{
+  margin:0;
+
+  color:#EEE5E8;
+
+  font-size:13.5px;
+  line-height:1.55;
+}
+
+
+/* =====================================================
+   FRASE CLAVE
+===================================================== */
+
+#sise-foro-integracion .quote{
+  background:#231F20;
+
+  color:white;
+
+  border-left:7px solid var(--red);
+  border-radius:10px;
+
+  padding:22px;
+
+  font-size:17px;
+  line-height:1.6;
+  font-weight:700;
+}
+
+
+/* =====================================================
+   PROPÓSITO
+===================================================== */
+
+#sise-foro-integracion .purpose{
+  background:#FFF1F5;
+
+  border:1px solid var(--border);
+  border-radius:10px;
+
+  padding:22px;
+
+  color:#333;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:850px){
+
+  #sise-foro-integracion .foro-card{
+    padding:24px;
+  }
+
+  #sise-foro-integracion h2{
+    font-size:28px;
+  }
+
+  #sise-foro-integracion .title-row{
+    flex-direction:column;
+  }
+
+  #sise-foro-integracion .content{
+    grid-template-columns:1fr;
+  }
+
+  #sise-foro-integracion .wide{
+    grid-column:auto;
+  }
+
+  #sise-foro-integracion .check-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media(max-width:520px){
+
+  #sise-foro-integracion .foro-card{
+    padding:20px;
+  }
+
+  #sise-foro-integracion .box{
+    padding:19px;
+  }
+
+  #sise-foro-integracion .checklist-shell{
+    padding:14px;
+  }
+
+  #sise-foro-integracion .diagnostic-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:3px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div id="sise-foro-integracion">
+
+
+<div class="foro-card">
+
+
+  <!-- ===================================================
+       CABECERA
+  =================================================== -->
+
+  <div class="title-row">
+
+
+    <div class="title-icon">
+
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+
+        <path
+          d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
+        </path>
+
+        <path d="M8 8h8"></path>
+
+        <path d="M8 12h5"></path>
+
+      </svg>
+
+    </div>
+
+
+    <div>
+
+
+      <h2>
+        ¿Tu estrategia evaluativa está realmente integrada?
+      </h2>
+
+
+      <div class="subtitle">
+
+        Revisa lo que ya has construido e identifica qué necesitas
+        fortalecer antes de integrar tu estrategia final.
+
+      </div>
+
+
+      <div
+        class="meta-row"
+        aria-label="Datos de la actividad"
+      >
+
+
+        <span class="meta-chip">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+            <path d="M9 11l3 3L22 4"></path>
+
+            <path
+              d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11">
+            </path>
+
+          </svg>
+
+          Checklist de integración
+
+        </span>
+
+
+        <span class="meta-chip">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+            <circle
+              cx="12"
+              cy="12"
+              r="9">
+            </circle>
+
+            <path d="M12 7v5l3 2"></path>
+
+          </svg>
+
+          10 min
+
+        </span>
+
+
+        <span class="meta-chip">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+
+            <path d="M5 12h14"></path>
+
+            <path d="M12 5l7 7-7 7"></path>
+
+          </svg>
+
+          Asíncrono
+
+        </span>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="content">
+
+
+    <!-- =================================================
+         REFLEXIONEMOS
+    ================================================= -->
+
+    <div class="box wide">
+
+
+      <div class="section-header">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path d="M12 20h9"></path>
+
+          <path
+            d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z">
+          </path>
+
+        </svg>
+
+
+        <h3>
+          Reflexionemos
+        </h3>
+
+      </div>
+
+
+      <p>
+        A lo largo del curso has avanzado en el diagnóstico de tus prácticas
+        evaluativas, el rediseño de una evidencia auténtica y la construcción
+        de un instrumento con criterios observables.
+      </p>
+
+
+      <p>
+        Ahora el reto ya no consiste en mejorar cada elemento por separado,
+        sino en preguntarte si todos esos componentes
+        <strong>
+          funcionan juntos como una estrategia evaluativa coherente.
+        </strong>
+      </p>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         PREGUNTA PODEROSA
+    ================================================= -->
+
+    <div class="box question-box">
+
+
+      <div class="section-header">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <circle
+            cx="12"
+            cy="12"
+            r="9">
+          </circle>
+
+          <path
+            d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4">
+          </path>
+
+          <path d="M12 17h.01"></path>
+
+        </svg>
+
+
+        <h3>
+          Pregunta poderosa
+        </h3>
+
+      </div>
+
+
+      <p>
+        Piensa en la estrategia evaluativa que vienes desarrollando
+        para uno de tus cursos.
+      </p>
+
+
+      <p class="highlight">
+
+        ¿Qué componente ya está suficientemente definido y cuál necesitas
+        fortalecer para que tu evaluación funcione como una estrategia
+        articulada y no como un conjunto de piezas aisladas?
+
+      </p>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         PROFUNDIZA
+    ================================================= -->
+
+    <div class="box">
+
+
+      <div class="section-header">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path d="M4 19V5"></path>
+
+          <path d="M4 19h16"></path>
+
+          <path d="M8 13h8"></path>
+
+          <path d="M8 9h5"></path>
+
+        </svg>
+
+
+        <h3>
+          Profundiza tu análisis
+        </h3>
+
+      </div>
+
+
+      <ul>
+
+        <li>
+          ¿La evidencia permite demostrar realmente el aprendizaje
+          que esperas valorar?
+        </li>
+
+        <li>
+          ¿El instrumento permite evaluar esa evidencia con criterios
+          claros y observables?
+        </li>
+
+        <li>
+          ¿Los criterios están conectados con el desempeño esperado?
+        </li>
+
+        <li>
+          ¿Has previsto cómo utilizarás la retroalimentación para orientar
+          la mejora del aprendizaje?
+        </li>
+
+      </ul>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         INSTRUCCIONES
+    ================================================= -->
+
+    <div class="box">
+
+
+      <div class="section-header">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path d="M4 4h16v16H4z"></path>
+
+          <path d="M8 8h8"></path>
+
+          <path d="M8 12h8"></path>
+
+          <path d="M8 16h5"></path>
+
+        </svg>
+
+
+        <h3>
+          Instrucciones de participación
+        </h3>
+
+      </div>
+
+
+      <ol>
+
+        <li>
+          <strong>
+            Piensa en un curso real:
+          </strong>
+          recupera la evidencia y el instrumento que vienes desarrollando
+          durante el curso.
+        </li>
+
+
+        <li>
+          <strong>
+            Completa el diagnóstico:
+          </strong>
+          marca los componentes que consideras que ya están claramente
+          definidos en tu estrategia.
+        </li>
+
+
+        <li>
+          <strong>
+            Publica tu reflexión:
+          </strong>
+          identifica el componente que consideras más sólido, aquel que
+          necesitas fortalecer y explica qué relación entre los elementos
+          de tu estrategia requiere mayor atención.
+        </li>
+
+
+        <li>
+          <strong>
+            Dialoga con un compañero:
+          </strong>
+          comenta su aporte mediante una pregunta o sugerencia que le permita
+          revisar la integración de su estrategia evaluativa.
+        </li>
+
+      </ol>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         CHECKLIST INTERACTIVO
+    ================================================= -->
+
+    <div class="box wide">
+
+
+      <div class="section-header">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path d="M9 11l3 3L22 4"></path>
+
+          <path
+            d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11">
+          </path>
+
+        </svg>
+
+
+        <h3>
+          Diagnóstico rápido de tu estrategia
+        </h3>
+
+      </div>
+
+
+
+      <div class="checklist-shell">
+
+
+        <div class="checklist-intro">
+
+          <strong>
+            ¿Qué componentes ya tienes definidos?
+          </strong>
+
+          <br>
+
+          Marca únicamente aquellos que puedes reconocer con claridad
+          en la estrategia evaluativa de tu curso.
+
+          No existen respuestas correctas o incorrectas:
+          este diagnóstico busca ayudarte a identificar tu punto de partida.
+
+        </div>
+
+
+
+        <div class="check-grid">
+
+
+          <!-- ===========================================
+               EVIDENCIA
+          =========================================== -->
+
+          <div class="check-item">
+
+
+            <input
+              type="checkbox"
+              id="check-evidencia"
+              class="integration-check"
+            >
+
+
+            <label for="check-evidencia">
+
+
+              <span class="check-box">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                  <path d="M5 12l4 4L19 6"></path>
+
+                </svg>
+
+              </span>
+
+
+              <span class="check-copy">
+
+                <strong>
+                  Evidencia de aprendizaje
+                </strong>
+
+                <span>
+                  Tengo claramente definida una evidencia que permite
+                  al estudiante demostrar el aprendizaje esperado.
+                </span>
+
+              </span>
+
+
+            </label>
+
+
+          </div>
+
+
+
+          <!-- ===========================================
+               INSTRUMENTO
+          =========================================== -->
+
+          <div class="check-item">
+
+
+            <input
+              type="checkbox"
+              id="check-instrumento"
+              class="integration-check"
+            >
+
+
+            <label for="check-instrumento">
+
+
+              <span class="check-box">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                  <path d="M5 12l4 4L19 6"></path>
+
+                </svg>
+
+              </span>
+
+
+              <span class="check-copy">
+
+                <strong>
+                  Instrumento de evaluación
+                </strong>
+
+                <span>
+                  Cuento con un instrumento pertinente para valorar
+                  la evidencia que presentará el estudiante.
+                </span>
+
+              </span>
+
+
+            </label>
+
+
+          </div>
+
+
+
+          <!-- ===========================================
+               CRITERIOS
+          =========================================== -->
+
+          <div class="check-item">
+
+
+            <input
+              type="checkbox"
+              id="check-criterios"
+              class="integration-check"
+            >
+
+
+            <label for="check-criterios">
+
+
+              <span class="check-box">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                  <path d="M5 12l4 4L19 6"></path>
+
+                </svg>
+
+              </span>
+
+
+              <span class="check-copy">
+
+                <strong>
+                  Criterios de evaluación
+                </strong>
+
+                <span>
+                  He definido criterios observables que permiten valorar
+                  la calidad del desempeño esperado.
+                </span>
+
+              </span>
+
+
+            </label>
+
+
+          </div>
+
+
+
+          <!-- ===========================================
+               RETROALIMENTACIÓN
+          =========================================== -->
+
+          <div class="check-item">
+
+
+            <input
+              type="checkbox"
+              id="check-feedback"
+              class="integration-check"
+            >
+
+
+            <label for="check-feedback">
+
+
+              <span class="check-box">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                  <path d="M5 12l4 4L19 6"></path>
+
+                </svg>
+
+              </span>
+
+
+              <span class="check-copy">
+
+                <strong>
+                  Retroalimentación
+                </strong>
+
+                <span>
+                  He previsto cómo la información obtenida durante la evaluación
+                  ayudará al estudiante a reconocer logros y oportunidades
+                  de mejora.
+                </span>
+
+              </span>
+
+
+            </label>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- =============================================
+             RESULTADO DEL DIAGNÓSTICO
+        ============================================= -->
+
+        <div class="diagnostic">
+
+
+          <div class="diagnostic-top">
+
+
+            <strong>
+              Tu punto de partida
+            </strong>
+
+
+            <span
+              class="diagnostic-count"
+              id="diagnostic-count"
+            >
+
+              0 de 4 componentes
+
+            </span>
+
+
+          </div>
+
+
+
+          <div class="progress-track">
+
+            <span
+              class="progress-fill"
+              id="progress-fill"
+            ></span>
+
+          </div>
+
+
+
+          <p id="diagnostic-message">
+
+            Revisa los cuatro componentes y marca aquellos que ya tienes
+            claramente definidos. Luego observa cuál necesita mayor atención.
+
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         BUENAS PRÁCTICAS
+    ================================================= -->
+
+    <div class="box">
+
+
+      <div class="section-header">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path d="M9 11l3 3L22 4"></path>
+
+          <path
+            d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11">
+          </path>
+
+        </svg>
+
+
+        <h3>
+          Buenas prácticas
+        </h3>
+
+      </div>
+
+
+      <ul>
+
+        <li>
+          Analiza una estrategia correspondiente a un curso real de tu
+          práctica docente.
+        </li>
+
+        <li>
+          No revises únicamente si cada componente existe; observa también
+          cómo se relaciona con los demás.
+        </li>
+
+        <li>
+          Reconoce con claridad qué componente requiere mayor atención
+          antes de integrar la propuesta final.
+        </li>
+
+        <li>
+          Utiliza los aportes de tus compañeros como una oportunidad
+          para revisar tus propias decisiones evaluativas.
+        </li>
+
+      </ul>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         CONECTA CON LO QUE SIGUE
+    ================================================= -->
+
+    <div class="box">
+
+
+      <div class="section-header">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <path d="M5 12h14"></path>
+
+          <path d="M12 5l7 7-7 7"></path>
+
+        </svg>
+
+
+        <h3>
+          Conecta con lo que sigue
+        </h3>
+
+      </div>
+
+
+      <p>
+        En el siguiente momento analizarás un
+        <strong>
+          ejemplo de estrategia evaluativa completa.
+        </strong>
+
+        Esto te permitirá contrastar tu diagnóstico inicial con una propuesta
+        en la que evidencia, instrumento, criterios y retroalimentación
+        funcionan de manera articulada.
+      </p>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         FRASE CLAVE
+    ================================================= -->
+
+    <div class="quote wide">
+
+      Una estrategia evaluativa no se construye acumulando componentes:
+      cobra sentido cuando evidencia, instrumento, criterios y retroalimentación
+      se conectan para orientar el aprendizaje y la toma de decisiones.
+
+    </div>
+
+
+
+    <!-- =================================================
+         PROPÓSITO
+    ================================================= -->
+
+    <div class="purpose wide">
+
+
+      <div class="section-header">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+          <circle
+            cx="12"
+            cy="12"
+            r="9">
+          </circle>
+
+          <circle
+            cx="12"
+            cy="12"
+            r="4">
+          </circle>
+
+          <path d="M12 2v4"></path>
+
+          <path d="M12 18v4"></path>
+
+          <path d="M2 12h4"></path>
+
+          <path d="M18 12h4"></path>
+
+        </svg>
+
+
+        <h3>
+          Propósito de esta actividad
+        </h3>
+
+      </div>
+
+
+      <p>
+        Al finalizar esta reflexión habrás identificado qué componentes
+        de tu estrategia evaluativa ya están definidos y cuáles necesitan
+        fortalecerse.
+
+        Este diagnóstico será el punto de partida para integrar evidencia,
+        instrumento, criterios y retroalimentación en una propuesta coherente
+        y aplicable a tu práctica docente.
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+<!-- =====================================================
+     INTERACTIVIDAD DEL CHECKLIST
+===================================================== -->
+
+<script>
+
+(function(){
+
+
+  const root =
+    document.getElementById("sise-foro-integracion");
+
+
+  if(!root){
+    return;
+  }
+
+
+  const checks =
+    root.querySelectorAll(".integration-check");
+
+
+  const count =
+    root.querySelector("#diagnostic-count");
+
+
+  const fill =
+    root.querySelector("#progress-fill");
+
+
+  const message =
+    root.querySelector("#diagnostic-message");
+
+
+
+  function updateDiagnostic(){
+
+
+    const selected =
+      Array.from(checks).filter(function(check){
+
+        return check.checked;
+
+      }).length;
+
+
+
+    const percentage =
+      (selected / checks.length) * 100;
+
+
+
+    /* CONTADOR */
+
+    count.textContent =
+      selected +
+      " de " +
+      checks.length +
+      " componentes";
+
+
+
+    /* PROGRESO */
+
+    fill.style.width =
+      percentage + "%";
+
+
+
+    /* MENSAJE ORIENTADOR */
+
+    if(selected === 0){
+
+
+      message.textContent =
+        "Revisa los cuatro componentes y marca aquellos que ya tienes claramente definidos. Luego observa cuál necesita mayor atención.";
+
+
+    }
+
+
+    else if(selected === 1){
+
+
+      message.textContent =
+        "Has identificado un componente definido. Revisa los demás y piensa qué necesitas desarrollar para que la estrategia comience a funcionar de manera articulada.";
+
+
+    }
+
+
+    else if(selected === 2){
+
+
+      message.textContent =
+        "Ya cuentas con algunos componentes. Ahora analiza qué elementos faltan y cómo podrían relacionarse con aquello que ya has construido.";
+
+
+    }
+
+
+    else if(selected === 3){
+
+
+      message.textContent =
+        "Tu estrategia presenta varios componentes definidos. Identifica cuál falta o requiere fortalecerse y revisa cómo afecta la coherencia de la propuesta completa.";
+
+
+    }
+
+
+    else{
+
+
+      message.textContent =
+        "Has identificado los cuatro componentes. El siguiente reto será comprobar si realmente están conectados entre sí y funcionan como una estrategia evaluativa integrada.";
+
+
+    }
+
+
+  }
+
+
+
+  checks.forEach(function(check){
+
+
+    check.addEventListener(
+      "change",
+      updateDiagnostic
+    );
+
+
+  });
+
+
+
+  updateDiagnostic();
+
+
+})();
+
+</script>
+
+
+</div>
+
+
+</body>
+</html>
